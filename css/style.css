@@ -1,3 +1,6 @@
+/* =============================================
+   CUSTOM PROPERTIES
+   ============================================= */
 :root {
     --primary: #0f172a;
     --secondary: #1e293b;
@@ -10,12 +13,12 @@
     --border: #e2e8f0;
     --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
     --radius: 18px;
-    --container: 1200px;
 }
 
-* {
-    margin: 0;
-    padding: 0;
+/* =============================================
+   RESET & BASE
+   ============================================= */
+*, *::before, *::after {
     box-sizing: border-box;
 }
 
@@ -42,21 +45,30 @@ a {
 
 ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.container {
-    width: min(100% - 32px, var(--container));
-    margin-inline: auto;
-}
-
+/* =============================================
+   LAYOUT
+   ============================================= */
 .section {
     padding: 90px 0;
 }
 
+/* =============================================
+   TYPOGRAPHY HELPERS
+   ============================================= */
 .section-title {
     font-size: clamp(2rem, 4vw, 2.8rem);
     margin-bottom: 14px;
     text-align: center;
+}
+
+/* Left-aligned variant (replaces inline style="text-align:left") */
+.section-title--left {
+    text-align: left;
+    margin-bottom: 18px;
 }
 
 .section-subtitle {
@@ -67,6 +79,19 @@ ul {
     font-size: 1.05rem;
 }
 
+/* Box headings (replaces inline style="margin-bottom:14px") */
+.box-heading {
+    margin-bottom: 14px;
+}
+
+/* Muted subtitle inside location box (replaces inline color:var(--muted)) */
+.box-subtitle {
+    color: var(--muted);
+}
+
+/* =============================================
+   BUTTONS
+   ============================================= */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -100,6 +125,9 @@ ul {
     background: rgba(255, 255, 255, 0.12);
 }
 
+/* =============================================
+   HEADER / NAV
+   ============================================= */
 header {
     position: sticky;
     top: 0;
@@ -109,7 +137,7 @@ header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.nav {
+.nav-wrapper {
     min-height: 80px;
     display: flex;
     align-items: center;
@@ -134,6 +162,8 @@ header {
     gap: 24px;
     color: rgba(255, 255, 255, 0.92);
     font-weight: 600;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links a:hover {
@@ -174,19 +204,15 @@ header {
     top: 28px;
 }
 
+/* =============================================
+   HERO
+   ============================================= */
 .hero {
     background:
         linear-gradient(rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.9)),
         url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
     color: var(--white);
     padding: 110px 0 90px;
-}
-
-.hero-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 36px;
-    align-items: center;
 }
 
 .hero-badge {
@@ -218,12 +244,6 @@ header {
     flex-wrap: wrap;
     gap: 14px;
     margin-bottom: 28px;
-}
-
-.hero-features {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
 }
 
 .feature-pill {
@@ -266,13 +286,9 @@ header {
     margin-bottom: 6px;
 }
 
-.rates-wrapper {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 28px;
-    align-items: start;
-}
-
+/* =============================================
+   KURSNA LISTA
+   ============================================= */
 .card {
     background: var(--white);
     border: 1px solid var(--border);
@@ -331,25 +347,12 @@ header {
     font-weight: 600;
 }
 
-.about-grid,
-.contact-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    align-items: center;
-}
-
-.about-content p,
-.contact-card p {
+/* =============================================
+   O NAMA
+   ============================================= */
+.about-content p {
     color: var(--muted);
     margin-bottom: 16px;
-}
-
-.stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-top: 24px;
 }
 
 .stat-box {
@@ -367,12 +370,39 @@ header {
     margin-bottom: 6px;
 }
 
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 22px;
+/* =============================================
+   PARTNERI
+   ============================================= */
+.partners-section {
+    background: #ffffff;
 }
 
+.partner-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 30px;
+    min-height: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    box-shadow: var(--shadow);
+}
+
+.partner-card:hover {
+    transform: translateY(-5px);
+}
+
+.partner-card img {
+    max-width: 180px;
+    max-height: 80px;
+    object-fit: contain;
+}
+
+/* =============================================
+   USLUGE
+   ============================================= */
 .service-card {
     background: var(--white);
     border: 1px solid var(--border);
@@ -380,6 +410,8 @@ header {
     padding: 26px;
     box-shadow: var(--shadow);
     transition: 0.3s ease;
+    cursor: pointer;
+    height: 100%;
 }
 
 .service-card:hover {
@@ -407,6 +439,9 @@ header {
     color: var(--muted);
 }
 
+/* =============================================
+   LOKACIJA & KONTAKT
+   ============================================= */
 .location-box,
 .contact-card,
 .form-card {
@@ -415,6 +450,12 @@ header {
     border-radius: 18px;
     padding: 28px;
     box-shadow: var(--shadow);
+    height: 100%;
+}
+
+.contact-card p {
+    color: var(--muted);
+    margin-bottom: 16px;
 }
 
 .location-list,
@@ -433,17 +474,20 @@ header {
 }
 
 .map-placeholder {
-    min-height: 320px;
     border-radius: 18px;
-    background: linear-gradient(135deg, #cbd5e1, #e2e8f0);
-    display: grid;
-    place-items: center;
-    text-align: center;
-    padding: 20px;
-    color: var(--secondary);
-    font-weight: 700;
+    overflow: hidden;
+    box-shadow: var(--shadow);
 }
 
+.map-placeholder iframe {
+    display: block;
+    width: 100%;
+    border: 0;
+}
+
+/* =============================================
+   FORM
+   ============================================= */
 form {
     display: grid;
     gap: 14px;
@@ -470,6 +514,9 @@ textarea {
     resize: vertical;
 }
 
+/* =============================================
+   FOOTER
+   ============================================= */
 footer {
     background: var(--primary);
     color: rgba(255, 255, 255, 0.9);
@@ -485,30 +532,77 @@ footer {
     flex-wrap: wrap;
 }
 
+.footer-content span {
+    color: var(--gold);
+}
+
 .footer-content p {
     color: rgba(255, 255, 255, 0.75);
+    margin: 0;
 }
 
-@media (max-width: 1024px) {
-
-    .hero-grid,
-    .rates-wrapper,
-    .about-grid,
-    .contact-grid,
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .hero-features,
-    .stats {
-        grid-template-columns: repeat(3, 1fr);
-    }
+/* =============================================
+   MODAL
+   ============================================= */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
 }
 
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    max-width: 500px;
+    width: 100%;
+    padding: 30px;
+    border-radius: 18px;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    border: none;
+    background: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* =============================================
+   REFRESH INDICATOR
+   ============================================= */
+.refresh-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-weight: 700;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.refreshing {
+    animation: pulse 1s ease;
+}
+
+@keyframes pulse {
+    0%   { opacity: 1; }
+    50%  { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+/* =============================================
+   MOBILE NAV (custom toggle, not Bootstrap navbar)
+   ============================================= */
 @media (max-width: 768px) {
     .section {
         padding: 70px 0;
@@ -548,12 +642,7 @@ footer {
         width: 100%;
     }
 
-    .hero-features,
-    .stats,
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-
+    /* Responsive table on mobile */
     .rates-table thead {
         display: none;
     }
@@ -589,110 +678,8 @@ footer {
         flex-direction: column;
         align-items: flex-start;
     }
-}
 
-.refresh-container {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    font-weight: 700;
-}
-
-.refreshing {
-    animation: pulse 1s ease;
-}
-
-@keyframes pulse {
-    0% {
-        opacity: 1
+    .section-title--left {
+        text-align: center;
     }
-
-    50% {
-        opacity: .3
-    }
-
-    100% {
-        opacity: 1
-    }
-}
-
-.service-card {
-    cursor: pointer;
-}
-
-.modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, .6);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    padding: 20px;
-}
-
-.modal.active {
-    display: flex;
-}
-
-.modal-content {
-    background: white;
-    max-width: 500px;
-    width: 100%;
-    padding: 30px;
-    border-radius: 18px;
-    position: relative;
-}
-
-.close-modal {
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    border: none;
-    background: none;
-    font-size: 28px;
-    cursor: pointer;
-}
-
-.partners-section {
-    background: #ffffff;
-}
-
-.partners-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-}
-
-.partner-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    padding: 30px;
-    min-height: 140px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    transition: .3s;
-    box-shadow: var(--shadow);
-}
-
-.partner-card:hover {
-    transform: translateY(-5px);
-}
-
-.partner-card img {
-    max-width: 180px;
-    max-height: 80px;
-    object-fit: contain;
-}
-
-@media(max-width:768px) {
-
-    .partners-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
 }
