@@ -401,12 +401,12 @@
 
           <div class="col-lg-7">
             <div class="form-card">
-              <h2 class="box-heading">Pošaljite upit</h2>
+              <h2 class="box-heading">Posaljite upit</h2>
               <form action="https://formspree.io/f/mkoddljl" method="POST" class="contact-form">
-                <input type="text" placeholder="Vaše ime" />
-                <input type="email" placeholder="Vaš email" />
-                <input type="text" placeholder="Naslov poruke" />
-                <textarea placeholder="Vaša poruka"></textarea>
+                <input type="text" name="name" placeholder="Vase ime" />
+                <input type="email" name="email" placeholder="Vas email" />
+                <input type="text" name="subject" placeholder="Naslov poruke" />
+                <textarea placeholder="Vasa poruka" name="message"></textarea>
                 <button type="submit" class="btn btn-primary">Posalji poruku</button>
               </form>
             </div>
