@@ -10,7 +10,7 @@ Statički sajt menjačnice ExPoint (JNA 9, Negotin), objavljen preko GitHub Page
 | `css/style.css` | Svi stilovi (boje i zaobljenja su na vrhu fajla, u `:root`) |
 | `js/main.js` | Učitavanje kursne liste, mobilni meni, prozor za usluge, odbrojavanje, godina u futeru |
 | `data/kursna-lista.json` | **Kursevi** (menjaju se preko admin stranice) |
-| `urednik-*.html`, `js/editor.js` | Admin stranica za izmenu kursne liste (vidi ispod) |
+| `admin.html`, `js/editor.js` | Admin stranica za izmenu kursne liste (vidi ispod) |
 | `_config.yml` | Isključuje README i izveštaj iz objave na sajtu |
 | `privatnost.html` | Politika privatnosti |
 | `404.html` | Stranica „nije pronađeno" |
@@ -23,9 +23,9 @@ Bootstrap 5.3.3 CSS je lokalno u `css/vendor/bootstrap.min.css` (koristi se samo
 ## Česte izmene
 
 ### Promena kursne liste – admin stranica (svakodnevno)
-Kurs se menja na **admin stranici**, i sa telefona. Njena tačna adresa se namerno **ne navodi ovde**: README je javan na GitHub-u. Adresu developer šalje klijentu privatno, zajedno sa pristupnim ključem.
+Kurs se menja na **https://expointng.com/admin.html**, i sa telefona:
 
-1. Otvorite admin stranicu. Na novom uređaju unesite pristupni ključ (samo prvi put).
+1. Otvorite `expointng.com/admin.html`. Na novom uređaju unesite pristupni ključ (samo prvi put).
 2. Promenite kupovni i prodajni kurs. Decimale mogu sa zarezom ili tačkom (`116,5` ili `116.5`).
 3. Kliknite **„Sačuvaj kursnu listu"**. Nova lista je na sajtu za ~1 minut, sa datumom „Kursna lista ažurirana: …".
 
@@ -33,10 +33,10 @@ Stranica sama proverava unos (prazna polja, slova umesto brojeva, kupovni veći 
 
 Savet: na telefonu dodajte admin stranicu na početni ekran (Chrome: meni ⋮ → „Dodaj na početni ekran"; Safari: Deli → „Dodaj na početni ekran").
 
-#### Skrivena adresa
-- Admin stranica ima nasumično ime fajla (`urednik-<nasumični niz>.html`) koje botovi ne mogu da pogode. Nema linka ka njoj sa sajta, nije u `sitemap.xml` ni u `robots.txt` (koji je javan), a `noindex` meta oznake zabranjuju indeksiranje.
-- Adresu ne objavljujte i ne stavljajte u javne poruke. Pošto je repozitorijum javan, ime fajla se vidi u spisku fajlova na GitHub-u. Prava zaštita je pristupni ključ: bez njega se na stranici ništa ne može promeniti.
-- Nova adresa, ako ova procuri: preimenujte fajl u novo nasumično ime (npr. `urednik-$(openssl rand -hex 6).html`) i pošaljite klijentu novu adresu.
+#### Adresa i indeksiranje
+- Admin stranica je na `expointng.com/admin.html`. Nema linka ka njoj sa sajta i nije u `sitemap.xml` ni u `robots.txt` (koji je javan). `noindex` meta oznake zabranjuju pretraživačima da je indeksiraju.
+- Botovi često nasumično isprobavaju adrese tipa `admin.html`, pa je mogu otvoriti, ali bez pristupnog ključa ne mogu ništa da pročitaju ni promene. Prava zaštita je ključ.
+- Ako želite manje očiglednu adresu, preimenujte fajl (npr. `urednik-$(openssl rand -hex 6).html`) i pošaljite klijentu novu adresu.
 
 #### Pristupni ključ (za developera)
 Admin stranica čuva izmene direktno u ovaj repozitorijum preko GitHub API-ja. Za to joj treba **fine-grained token**:
