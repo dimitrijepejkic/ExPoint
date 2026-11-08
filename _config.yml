@@ -4,3 +4,4 @@ exclude:
   - README.md
   - WEBSITE_AUDIT_REPORT.md
   - qr/
+  - tools/

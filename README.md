@@ -15,6 +15,7 @@ Statički sajt menjačnice ExPoint (JNA 9, Negotin), objavljen preko GitHub Page
 | `privatnost.html` | Politika privatnosti |
 | `kontakt.html`, `kontakt.vcf` | Stranica koju otvara QR kod (pozovi, Viber, WhatsApp, email, sajt, mapa, sačuvaj kontakt) |
 | `qr/` | QR kod za štampu i digitalno (nije objavljen na sajtu) |
+| `tools/update-versions.py` | Osvežava `?v=` oznake verzije CSS/JS fajlova (nije objavljen na sajtu) |
 | `404.html` | Stranica „nije pronađeno" |
 | `images/` | Ikonice sajta, slika za deljenje (`og-image.jpg`), logotipi partnera (`images/partners/`), pozadinska slika (`images/hero/`) |
 | `CNAME` | Domen `expointng.com` za GitHub Pages |
@@ -94,6 +95,15 @@ python -m http.server 8000
 ```
 
 pa otvorite http://localhost:8000.
+
+## Izmena CSS-a ili JavaScript-a
+Stranice učitavaju `css/style.css`, `js/main.js` i `js/editor.js` sa oznakom verzije (npr. `style.css?v=479352d1`), da pregledači ne bi koristili staru, zapamćenu verziju. **Posle svake izmene tih fajlova** pokrenite:
+
+```
+python tools/update-versions.py
+```
+
+Skripta sama izračuna nove oznake i upiše ih u sve stranice. Stranica `kontakt.html` (QR kod) ima stilove ugrađene u sebe i ne zavisi od `style.css`.
 
 ## Objavljivanje
 Svaki `git push` na granu `main` se automatski objavljuje na GitHub Pages. Izmene su vidljive za ~1–10 minuta, jer GitHub kešira fajlove do 10 minuta.

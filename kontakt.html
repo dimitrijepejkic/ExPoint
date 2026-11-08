@@ -9,7 +9,174 @@
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-  <link rel="stylesheet" href="css/style.css" />
+  <!-- Self-contained styles: this QR landing page must render correctly even with a stale cached style.css -->
+  <style>
+    :root {
+      --primary: #0f172a;
+      --accent: #22c55e;
+      --accent-button: #15803d;
+      --accent-button-hover: #166534;
+      --gold: #f59e0b;
+      --light: #f8fafc;
+      --white: #ffffff;
+      --muted: #64748b;
+      --border: #e2e8f0;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--primary);
+      line-height: 1.6;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; margin: 0; padding: 0; }
+    p { margin: 0; }
+
+    /* =============================================
+       QR CONTACT PAGE (kontakt.html)
+       ============================================= */
+    .qr-page {
+        min-height: 100vh;
+        margin: 0;
+        background:
+            radial-gradient(circle at 20% 0%, rgba(245, 158, 11, 0.12), transparent 45%),
+            linear-gradient(160deg, var(--primary) 0%, #1e293b 100%);
+    }
+
+    .qr-wrap {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 32px 16px;
+    }
+
+    .qr-card {
+        width: 100%;
+        max-width: 440px;
+        background: var(--white);
+        border-radius: 24px;
+        padding: 28px 20px 20px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    .qr-brand {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .qr-logo {
+        display: block;
+        font-size: 2.4rem;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+        line-height: 1.1;
+        color: var(--primary);
+    }
+
+    .qr-logo span {
+        color: var(--gold);
+    }
+
+    .qr-sub {
+        display: block;
+        color: var(--muted);
+        font-weight: 600;
+    }
+
+    .qr-info {
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.92rem;
+        margin: 0 0 20px;
+    }
+
+    .qr-actions {
+        display: grid;
+        gap: 10px;
+    }
+
+    .qr-action {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        min-height: 64px;
+        padding: 10px 16px;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: var(--light);
+        transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .qr-action:hover,
+    .qr-action:focus-visible {
+        border-color: var(--accent);
+        background: #f0fdf4;
+    }
+
+    .qr-action:active {
+        transform: scale(0.98);
+    }
+
+    .qr-action--primary {
+        background: var(--accent-button);
+        border-color: var(--accent-button);
+        color: var(--white);
+    }
+
+    .qr-action--primary:hover,
+    .qr-action--primary:focus-visible {
+        background: var(--accent-button-hover);
+        border-color: var(--accent-button-hover);
+    }
+
+    .qr-icon {
+        flex: 0 0 auto;
+        width: 40px;
+        height: 40px;
+        display: grid;
+        place-items: center;
+        border-radius: 12px;
+        background: var(--white);
+        font-size: 1.3rem;
+    }
+
+    .qr-text {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        line-height: 1.3;
+    }
+
+    .qr-text strong {
+        font-size: 1.05rem;
+    }
+
+    .qr-text small {
+        color: var(--muted);
+        font-size: 0.85rem;
+        overflow-wrap: anywhere;
+    }
+
+    .qr-action--primary .qr-text small {
+        color: rgba(255, 255, 255, 0.85);
+    }
+
+    .qr-foot {
+        margin: 18px 0 0;
+        text-align: center;
+        font-size: 0.85rem;
+    }
+
+    .qr-foot a {
+        color: var(--muted);
+        text-decoration: underline;
+    }
+  </style>
   <title>Kontakt – ExPoint Menjačnica Negotin</title>
   <meta name="description" content="ExPoint menjačnica, JNA 9, Negotin – pozovite nas, pišite nam ili posetite sajt.">
   <link rel="canonical" href="https://expointng.com/kontakt">
