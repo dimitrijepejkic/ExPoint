@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html lang="sr">
+<html lang="sr-Latn">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-  <link rel="icon" type="images/png" sizes="32x32" href="images/favicon-32x32.png">
-  <link rel="icon" type="images/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
   <link rel="manifest" href="images/site.webmanifest">
   <link rel="stylesheet" href="css/style.css" />
-  <title>ExPoint Menjacnica</title>
+  <title>ExPoint Menjačnica Negotin – Kursna lista, Ria, MoneyGram</title>
 
   <meta name="description"
-    content="ExPoint Menjacnica Negotin - povoljni kursevi za EUR, USD, CHF, GBP i druge valute. Ria Money Transfer, MoneyGram, AMC Srbija, Drzavna Lutrija Srbije. JNA 9, Negotin.">
+    content="ExPoint Menjačnica Negotin - povoljni kursevi za EUR, USD, CHF, GBP i druge valute. Ria Money Transfer, MoneyGram, Western Union, Državna Lutrija Srbije. JNA 9, Negotin.">
 
   <meta name="keywords"
-    content="menjacnica negotin, kursna lista negotin, exchange office negotin, ria negotin, moneygram negotin, zamena valuta negotin">
+    content="menjacnica negotin, kursna lista negotin, exchange office negotin, ria negotin, moneygram negotin, western union negotin, zamena valuta negotin">
 
   <meta name="author" content="ExPoint Menjacnica">
 
@@ -27,21 +29,60 @@
   <link rel="canonical" href="https://expointng.com/">
 
   <meta property="og:type" content="website">
-  <meta property="og:title" content="ExPoint Menjacnica Negotin">
+  <meta property="og:site_name" content="ExPoint Menjačnica">
+  <meta property="og:title" content="ExPoint Menjačnica Negotin">
   <meta property="og:description"
-    content="Pouzdana menjacnica sa povoljnim kursevima i medjunarodnim transferom novca.">
+    content="Pouzdana menjačnica sa povoljnim kursevima i međunarodnim transferom novca.">
   <meta property="og:url" content="https://expointng.com/">
   <meta property="og:image" content="https://expointng.com/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ExPoint menjačnica, Negotin">
   <meta property="og:locale" content="sr_RS">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FinancialService",
+    "name": "ExPoint Menjačnica",
+    "url": "https://expointng.com/",
+    "image": "https://expointng.com/images/og-image.jpg",
+    "logo": "https://expointng.com/images/android-chrome-512x512.png",
+    "telephone": "+381605446081",
+    "email": "expointoffice@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "JNA 9",
+      "addressLocality": "Negotin",
+      "postalCode": "19300",
+      "addressCountry": "RS"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 44.22926,
+      "longitude": 22.53234
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "08:00",
+        "closes": "16:00"
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
+  <a class="skip-link visually-hidden-focusable" href="#main">Preskoči na sadržaj</a>
   <header>
     <div class="container nav-wrapper">
-      <a href="#pocetna" class="logo">Ex<span>Point</span> menjacnica</a>
+      <a href="#pocetna" class="logo">Ex<span>Point</span> menjačnica</a>
       <nav>
         <ul class="nav-links" id="navLinks">
-          <li><a href="#pocetna">Pocetna</a></li>
+          <li><a href="#pocetna">Početna</a></li>
           <li><a href="#kursna-lista">Kursna lista</a></li>
           <li><a href="#o-nama">O nama</a></li>
           <li><a href="#usluge">Usluge</a></li>
@@ -50,19 +91,20 @@
         </ul>
       </nav>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Otvori meni">
+      <button class="menu-toggle" id="menuToggle" aria-label="Otvori meni" aria-expanded="false"
+        aria-controls="navLinks">
         <span></span>
       </button>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <!-- HERO -->
     <section class="hero" id="pocetna">
       <div class="container">
         <div class="row align-items-center g-4">
           <div class="col-lg-7">
-            <span class="hero-badge">Pouzdana menjacnica</span>
+            <span class="hero-badge">Pouzdana menjačnica</span>
             <h1>Brza i sigurna zamena valuta uz povoljne kurseve</h1>
             <p>
               Menjačnica koja stavlja preglednost, sigurnost i profesionalnu uslugu na prvo mesto.
@@ -89,12 +131,11 @@
 
           <div class="col-lg-5">
             <div class="hero-card">
-              <h3>Brze informacije</h3>
+              <h2>Brze informacije</h2>
               <div class="quick-info">
                 <div class="quick-info-item">
                   <small>Pon - Sub Letnje radno vreme</small>
-                  <strong>08:00 - 13:00</strong><br>
-                  <strong>17:00 - 20:00</strong>
+                  <strong>08:00 - 16:00</strong>
                 </div>
                 <div class="quick-info-item">
                   <small>Pon - Sub Zimsko radno vreme</small>
@@ -122,85 +163,85 @@
         <p class="section-subtitle">Informativni prikaz kursne liste.</p>
 
         <div class="refresh-container">
-          <div>Poslednje osvezavanje: <span id="lastRefresh">--:--:--</span></div>
-          <div>Sledece osvezavanje za: <span id="countdown">60</span>s</div>
+          <div>Poslednje osvežavanje: <span id="lastRefresh">--:--:--</span></div>
+          <div>Sledeće osvežavanje za: <span id="countdown">60</span>s</div>
         </div>
 
         <div class="row g-4 align-items-start">
           <div class="col-lg-7">
             <div class="card">
-              <table class="rates-table">
+              <table class="rates-table" aria-label="Kursna lista – kupovni i prodajni kursevi">
                 <thead>
                   <tr>
-                    <th>Valuta</th>
-                    <th>Oznaka</th>
-                    <th>Kupovni kurs</th>
-                    <th>Prodajni kurs</th>
+                    <th scope="col">Valuta</th>
+                    <th scope="col">Oznaka</th>
+                    <th scope="col">Kupovni kurs</th>
+                    <th scope="col">Prodajni kurs</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td data-label="Valuta">EUR</td>
+                    <td data-label="Valuta">Evro</td>
                     <td data-label="Oznaka">EUR</td>
                     <td data-label="Kupovni kurs">116.5</td>
                     <td data-label="Prodajni kurs">118</td>
                   </tr>
                   <tr>
-                    <td data-label="Valuta">USD</td>
+                    <td data-label="Valuta">Američki dolar</td>
                     <td data-label="Oznaka">USD</td>
                     <td data-label="Kupovni kurs">98</td>
                     <td data-label="Prodajni kurs">103</td>
                   </tr>
                   <tr>
-                    <td data-label="Valuta">CHF</td>
+                    <td data-label="Valuta">Švajcarski franak</td>
                     <td data-label="Oznaka">CHF</td>
                     <td data-label="Kupovni kurs">126</td>
                     <td data-label="Prodajni kurs">130</td>
                   </tr>
                   <tr>
-                    <td data-label="Valuta">CHF-8</td>
+                    <td data-label="Valuta">Švajcarski franak (8.&nbsp;serija)</td>
                     <td data-label="Oznaka">CHF-8</td>
                     <td data-label="Kupovni kurs">123.5</td>
                     <td data-label="Prodajni kurs">128</td>
                   </tr>
                   <tr>
-                    <td data-label="Valuta">GBP</td>
+                    <td data-label="Valuta">Britanska funta</td>
                     <td data-label="Oznaka">GBP</td>
                     <td data-label="Kupovni kurs">132</td>
                     <td data-label="Prodajni kurs">136</td>
                   </tr>
                   <tr>
-                    <td data-label="Valuta">AUD</td>
+                    <td data-label="Valuta">Australijski dolar</td>
                     <td data-label="Oznaka">AUD</td>
                     <td data-label="Kupovni kurs">69</td>
                     <td data-label="Prodajni kurs">73</td>
                   </tr>
                   <tr>
-                    <td data-label="Valuta">CAD</td>
+                    <td data-label="Valuta">Kanadski dolar</td>
                     <td data-label="Oznaka">CAD</td>
                     <td data-label="Kupovni kurs">70</td>
                     <td data-label="Prodajni kurs">74</td>
                   </tr>
                   <tr>
-                    <td data-label="Valuta">BAM</td>
+                    <td data-label="Valuta">Konvertibilna marka</td>
                     <td data-label="Oznaka">BAM</td>
                     <td data-label="Kupovni kurs">55</td>
                     <td data-label="Prodajni kurs">60</td>
                   </tr>
                   <tr>
-                    <td data-label="Valuta">RON</td>
+                    <td data-label="Valuta">Rumunski lej</td>
                     <td data-label="Oznaka">RON</td>
                     <td data-label="Kupovni kurs">21</td>
                     <td data-label="Prodajni kurs">23</td>
                   </tr>
                   <tr>
-                    <td data-label="Valuta">TRY</td>
+                    <td data-label="Valuta">Turska lira</td>
                     <td data-label="Oznaka">TRY</td>
                     <td data-label="Kupovni kurs">1.2</td>
                     <td data-label="Prodajni kurs">2.4</td>
                   </tr>
                   <tr>
-                    <td data-label="Valuta">MKD</td>
+                    <td data-label="Valuta">Makedonski denar</td>
                     <td data-label="Oznaka">MKD</td>
                     <td data-label="Kupovni kurs">1.3</td>
                     <td data-label="Prodajni kurs">1.9</td>
@@ -213,13 +254,13 @@
 
           <div class="col-lg-5">
             <div class="card highlight-box">
-              <h3>Zasto bas mi?</h3>
+              <h3>Zašto baš mi?</h3>
               <p>Fokus nam je na brzoj usluzi, transparentnim informacijama i poverenju klijenata.</p>
               <ul class="highlight-list">
                 <li>Konkurentni kupovni i prodajni kursevi</li>
                 <li>Ljubazno i profesionalno osoblje</li>
                 <li>Jasno istaknuti kontakt podaci i lokacija</li>
-                <li>Moderan i pregledan korisnički doživljaj</li>
+                <li>Ria, MoneyGram i Western Union na jednom mestu</li>
               </ul>
             </div>
           </div>
@@ -238,8 +279,8 @@
               Posvećeni smo tome da svaki klijent brzo dobije potrebnu uslugu, bez čekanja i bez nejasnih informacija.
             </p>
             <p>
-              Sajt je osmišljen tako da korisnik odmah vidi najbitnije informacije: kursnu listu, lokaciju, radno vreme
-              i kontakt.
+              Pored zamene valuta, kod nas možete poslati i primiti novac putem Ria, MoneyGram i Western Union
+              mreže, kao i uplatiti igre Državne Lutrije Srbije.
             </p>
           </div>
 
@@ -259,8 +300,8 @@
               </div>
               <div class="col-4">
                 <div class="stat-box">
-                  <strong>4</strong>
-                  <span>najtraženije valute</span>
+                  <strong>10</strong>
+                  <span>valuta u ponudi</span>
                 </div>
               </div>
             </div>
@@ -270,7 +311,7 @@
     </section>
 
     <!-- PARTNERI -->
-    <section class="section partners-section">
+    <section class="section partners-section" id="partneri">
       <div class="container">
         <h2 class="section-title">Naši partneri</h2>
         <p class="section-subtitle">
@@ -279,23 +320,23 @@
 
         <div class="row g-4 justify-content-center">
           <div class="col-6 col-md-3">
-            <a href="https://www.riamoneytransfer.com/en-us/" target="_blank" class="partner-card">
-              <img src="images/partners/Ria_Main_Logo_Descriptor_Color_RGB.png" alt="Ria Money Transfer">
+            <a href="https://www.riamoneytransfer.com/" target="_blank" rel="noopener noreferrer" class="partner-card">
+              <img src="images/partners/Ria_Main_Logo_Descriptor_Color_RGB.png" alt="Ria Money Transfer" loading="lazy" decoding="async">
             </a>
           </div>
           <div class="col-6 col-md-3">
-            <a href="https://www.moneygram.com/us/en" target="_blank" class="partner-card">
-              <img src="images/partners/logo-moneygram-black.svg" alt="MoneyGram">
+            <a href="https://www.moneygram.com/r/rs/en" target="_blank" rel="noopener noreferrer" class="partner-card">
+              <img src="images/partners/logo-moneygram-black.svg" alt="MoneyGram" loading="lazy" decoding="async">
             </a>
           </div>
           <div class="col-6 col-md-3">
-            <a href="https://www.amcsrbija.rs/paketi/premijum-srbija/" target="_blank" class="partner-card">
-              <img src="images/partners/Logo-AMC-2024-v2a.svg" alt="AMC Srbija">
+            <a href="https://www.westernunion.com/rs/sr/home.html" target="_blank" rel="noopener noreferrer" class="partner-card">
+              <img src="images/partners/western-union.svg" alt="Western Union" loading="lazy" decoding="async">
             </a>
           </div>
           <div class="col-6 col-md-3">
-            <a href="https://www.lutrija.rs/" target="_blank" class="partner-card">
-              <img src="images/partners/DLS.png" alt="Državna Lutrija Srbije">
+            <a href="https://www.lutrija.rs/" target="_blank" rel="noopener noreferrer" class="partner-card">
+              <img src="images/partners/DLS.png" alt="Državna Lutrija Srbije" loading="lazy" decoding="async">
             </a>
           </div>
         </div>
@@ -306,45 +347,45 @@
     <section class="section" id="usluge">
       <div class="container">
         <h2 class="section-title">Naše usluge</h2>
-        <p class="section-subtitle">Jednostavna prezentacija usluga.</p>
+        <p class="section-subtitle">Sve što vam treba na jednom mestu – od transfera novca do uplate igara na sreću.</p>
 
         <div class="row g-4">
           <div class="col-12 col-sm-6 col-lg-3">
-            <article class="service-card" data-title="Državna Lutrija Srbije"
+            <article class="service-card" tabindex="0" role="button" aria-haspopup="dialog" data-title="Državna Lutrija Srbije"
               data-description="Uplata igara na sreću i svih proizvoda Državne Lutrije Srbije.">
-              <div class="service-icon">🎲</div>
+              <div class="service-icon" aria-hidden="true">🎲</div>
               <h3>Državna Lutrija Srbije</h3>
               <p>Kliknite za više informacija.</p>
             </article>
           </div>
           <div class="col-12 col-sm-6 col-lg-3">
-            <article class="service-card" data-title="Ria Money Transfer"
+            <article class="service-card" tabindex="0" role="button" aria-haspopup="dialog" data-title="Ria Money Transfer"
               data-description="Brz međunarodni transfer novca putem Ria Money Transfer mreže.">
-              <div class="service-icon">💸</div>
+              <div class="service-icon" aria-hidden="true">💸</div>
               <h3>Ria Money Transfer</h3>
               <p>Kliknite za više informacija.</p>
             </article>
           </div>
           <div class="col-12 col-sm-6 col-lg-3">
-            <article class="service-card" data-title="MoneyGram"
+            <article class="service-card" tabindex="0" role="button" aria-haspopup="dialog" data-title="MoneyGram"
               data-description="Slanje i prijem novca u preko 200 zemalja sveta.">
-              <div class="service-icon">🌎</div>
+              <div class="service-icon" aria-hidden="true">🌎</div>
               <h3>MoneyGram</h3>
               <p>Kliknite za više informacija.</p>
             </article>
           </div>
           <div class="col-12 col-sm-6 col-lg-3">
-            <article class="service-card" data-title="AMC Klub Srbija"
-              data-description="Premijum pomoć na putu, šlep služba i podrška tokom putovanja.">
-              <div class="service-icon">🚗</div>
-              <h3>AMC Klub Srbija</h3>
+            <article class="service-card" tabindex="0" role="button" aria-haspopup="dialog" data-title="Western Union"
+              data-description="Brzo i sigurno slanje i prijem novca širom sveta putem Western Union mreže.">
+              <div class="service-icon" aria-hidden="true">💵</div>
+              <h3>Western Union</h3>
               <p>Kliknite za više informacija.</p>
             </article>
           </div>
           <div class="col-12 col-sm-6 col-lg-3">
-            <article class="service-card" data-title="Reklamirajte se na LED bilbordima"
+            <article class="service-card" tabindex="0" role="button" aria-haspopup="dialog" data-title="Reklamirajte se na LED bilbordima"
               data-description="Reklamirajte se na LED bilbordima u celom gradu.">
-              <div class="service-icon">📢</div>
+              <div class="service-icon" aria-hidden="true">📢</div>
               <h3>Reklamirajte se na LED bilbordima</h3>
               <p>Kliknite za više informacija.</p>
             </article>
@@ -361,11 +402,11 @@
             <div class="location-box">
               <h2 class="box-heading">Lokacija i radno vreme</h2>
               <p class="box-subtitle">
-                Ubaci tačnu adresu, radno vreme i kasnije Google mapu ili iframe map embed.
+                Posetite nas na adresi ispod, u toku radnog vremena.
               </p>
               <ul class="location-list">
-                <li><strong>Adresa:</strong> Jna 9, Negotin</li>
-                <li><strong>Radno vreme:</strong> Pon - Sub 08:00 - 20:00</li>
+                <li><strong>Adresa:</strong> JNA 9, Negotin</li>
+                <li><strong>Radno vreme:</strong> Pon - Sub 08:00 - 16:00</li>
                 <li><strong>Nedelja:</strong> Neradni dan</li>
               </ul>
             </div>
@@ -373,7 +414,7 @@
 
           <div class="col-lg-7">
             <div class="map-placeholder">
-              <iframe
+              <iframe title="Mapa – ExPoint menjačnica, JNA 9, Negotin"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d178.68265068771925!2d22.532344389566592!3d44.22925578168696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4753954f633ff4c7%3A0x28293e3b7aaea6bd!2sJna%209%2C%20Negotin%2019300!5e0!3m2!1sen!2srs!4v1782037730143!5m2!1sen!2srs"
                 width="100%" height="450" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -394,20 +435,25 @@
               <ul class="contact-list">
                 <li><strong>Telefon:</strong> <a href="tel:+381605446081">+381 60 5446 081</a></li>
                 <li><strong>Email:</strong> <a href="mailto:expointoffice@gmail.com">expointoffice@gmail.com</a></li>
-                <li><strong>Adresa:</strong> Jna 9, Negotin</li>
+                <li><strong>Adresa:</strong> JNA 9, Negotin</li>
               </ul>
             </div>
           </div>
 
           <div class="col-lg-7">
             <div class="form-card">
-              <h2 class="box-heading">Posaljite upit</h2>
+              <h2 class="box-heading">Pošaljite upit</h2>
               <form action="https://formspree.io/f/mkoddljl" method="POST" class="contact-form">
-                <input type="text" name="name" placeholder="Vase ime" />
-                <input type="email" name="email" placeholder="Vas email" />
-                <input type="text" name="subject" placeholder="Naslov poruke" />
-                <textarea placeholder="Vasa poruka" name="message"></textarea>
-                <button type="submit" class="btn btn-primary">Posalji poruku</button>
+                <label for="cf-name" class="visually-hidden">Vaše ime</label>
+                <input type="text" id="cf-name" name="name" placeholder="Vaše ime" autocomplete="name" required />
+                <label for="cf-email" class="visually-hidden">Vaš email</label>
+                <input type="email" id="cf-email" name="email" placeholder="Vaš email" autocomplete="email" required />
+                <label for="cf-subject" class="visually-hidden">Naslov poruke</label>
+                <input type="text" id="cf-subject" name="subject" placeholder="Naslov poruke" />
+                <label for="cf-message" class="visually-hidden">Vaša poruka</label>
+                <textarea id="cf-message" placeholder="Vaša poruka" name="message" required></textarea>
+                <input type="text" name="_gotcha" class="d-none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+                <button type="submit" class="btn btn-primary">Pošalji poruku</button>
               </form>
             </div>
           </div>
@@ -418,20 +464,20 @@
 
   <footer>
     <div class="container footer-content">
-      <strong>Ex<span>Point</span> menjacnica</strong>
-      <p>&copy; 2026 Sva prava zadrzana. Dizajn i razvoj naslovne strane za menjacnicu.</p>
+      <strong>Ex<span>Point</span> menjačnica</strong>
+      <p>&copy; <time id="year">2026</time> Sva prava zadržana. ExPoint menjačnica, JNA 9, Negotin.</p>
     </div>
   </footer>
 
-  <div class="modal" id="serviceModal">
+  <div class="modal" id="serviceModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"
+    aria-describedby="modalDescription" aria-hidden="true">
     <div class="modal-content">
-      <button class="close-modal">x</button>
+      <button type="button" class="close-modal" aria-label="Zatvori">x</button>
       <h3 id="modalTitle"></h3>
       <p id="modalDescription"></p>
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/main.js" defer></script>
 
 </body>
