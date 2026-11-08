@@ -57,6 +57,21 @@
         ratesBody.replaceChildren(...rows);
     }
 
+    const ratesUpdated = document.getElementById("ratesUpdated");
+
+    // "2026-11-09T08:15:00+01:00" -> "09.11.2026. u 08:15" (Belgrade time).
+    function formatUpdated(iso) {
+        const date = new Date(iso);
+        if (typeof iso !== "string" || Number.isNaN(date.getTime())) return "—";
+        const parts = Object.fromEntries(
+            new Intl.DateTimeFormat("en-GB", {
+                timeZone: "Europe/Belgrade", day: "2-digit", month: "2-digit", year: "numeric",
+                hour: "2-digit", minute: "2-digit", hourCycle: "h23"
+            }).formatToParts(date).map(p => [p.type, p.value])
+        );
+        return `${parts.day}.${parts.month}.${parts.year}. u ${parts.hour}:${parts.minute}`;
+    }
+
     // Loads the JSON and replaces the table rows. On any problem (offline,
     // file:// preview, typo in the JSON) the rows already on the page stay.
     async function loadRates() {
@@ -70,6 +85,7 @@
                 throw new Error("neispravan format kursne liste");
             }
             renderRates(rates);
+            if (ratesUpdated) ratesUpdated.textContent = formatUpdated(data.azurirano);
         } catch (err) {
             console.warn("Kursna lista nije učitana iz " + RATES_URL + ":", err.message);
         }
@@ -77,14 +93,12 @@
 
     /* ---------- Rates refresh indicator ---------- */
     const countdown = document.getElementById("countdown");
-    const lastRefresh = document.getElementById("lastRefresh");
 
-    if (countdown && lastRefresh && ratesTable) {
+    if (countdown && ratesTable) {
         let seconds = 60;
 
         const updateRefreshTime = () => {
             loadRates();
-            lastRefresh.textContent = new Date().toLocaleTimeString("sr-RS");
             ratesTable.classList.add("refreshing");
             setTimeout(() => ratesTable.classList.remove("refreshing"), 1000);
         };

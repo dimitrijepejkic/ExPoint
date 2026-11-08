@@ -9,7 +9,9 @@ Statički sajt menjačnice ExPoint (JNA 9, Negotin), objavljen preko GitHub Page
 | `index.html` | Cela stranica: meni, kursna lista, o nama, partneri, usluge, lokacija, kontakt forma |
 | `css/style.css` | Svi stilovi (boje i zaobljenja su na vrhu fajla, u `:root`) |
 | `js/main.js` | Učitavanje kursne liste, mobilni meni, prozor za usluge, odbrojavanje, godina u futeru |
-| `data/kursna-lista.json` | **Kursevi**: ovde se menjaju |
+| `data/kursna-lista.json` | **Kursevi** (menjaju se preko admin stranice) |
+| `urednik-*.html`, `js/editor.js` | Admin stranica za izmenu kursne liste (vidi ispod) |
+| `_config.yml` | Isključuje README i izveštaj iz objave na sajtu |
 | `privatnost.html` | Politika privatnosti |
 | `404.html` | Stranica „nije pronađeno" |
 | `images/` | Ikonice sajta, slika za deljenje (`og-image.jpg`), logotipi partnera (`images/partners/`), pozadinska slika (`images/hero/`) |
@@ -20,22 +22,43 @@ Bootstrap 5.3.3 CSS je lokalno u `css/vendor/bootstrap.min.css` (koristi se samo
 
 ## Česte izmene
 
-### Promena kursne liste
-Kursevi su u fajlu **`data/kursna-lista.json`**. HTML ne treba dirati. Svaki red izgleda ovako:
+### Promena kursne liste – admin stranica (svakodnevno)
+Kurs se menja na **admin stranici**, i sa telefona. Njena tačna adresa se namerno **ne navodi ovde**: README je javan na GitHub-u. Adresu developer šalje klijentu privatno, zajedno sa pristupnim ključem.
 
-```json
-{ "naziv": "Evro", "oznaka": "EUR", "kupovni": 116.5, "prodajni": 118 },
-```
+1. Otvorite admin stranicu. Na novom uređaju unesite pristupni ključ (samo prvi put).
+2. Promenite kupovni i prodajni kurs. Decimale mogu sa zarezom ili tačkom (`116,5` ili `116.5`).
+3. Kliknite **„Sačuvaj kursnu listu"**. Nova lista je na sajtu za ~1 minut, sa datumom „Kursna lista ažurirana: …".
 
-**Najlakše preko GitHub-a, i sa telefona:** otvorite repozitorijum → `data` → `kursna-lista.json` → ikonica olovke → promenite brojeve → **Commit changes**. Sajt se osveži za par minuta. Posetioci koji su već na stranici vide novi kurs pri sledećem osvežavanju (svakih 60 s).
+Stranica sama proverava unos (prazna polja, slova umesto brojeva, kupovni veći od prodajnog, oznaka koja se ponavlja), pa neispravna lista ne može da se sačuva. Valute se dodaju dugmetom „+ Dodaj valutu" i uklanjaju dugmetom ✕. Redosled na admin stranici je redosled na sajtu.
 
-Pravila, da fajl ostane ispravan:
-- Decimalni brojevi pišu se sa **tačkom**: `116.5`, a ne `116,5`. Brojevi idu bez navodnika.
-- Tekst (`naziv`, `oznaka`) ide **pod navodnicima**.
-- Svaki red osim poslednjeg završava se **zarezom**.
-- Za novu valutu kopirajte ceo red `{ ... },`. Redosled u fajlu je redosled u tabeli.
+Savet: na telefonu dodajte admin stranicu na početni ekran (Chrome: meni ⋮ → „Dodaj na početni ekran"; Safari: Deli → „Dodaj na početni ekran").
 
-Ako fajl ima grešku, sajt prikazuje rezervnu tabelu iz `index.html` (sekcija `<!-- KURSNA LISTA -->`), a ne praznu listu. Zato je dobro da se i ta rezervna tabela s vremena na vreme uskladi sa JSON-om. Ispravnost fajla možete proveriti na https://jsonlint.com.
+#### Skrivena adresa
+- Admin stranica ima nasumično ime fajla (`urednik-<nasumični niz>.html`) koje botovi ne mogu da pogode. Nema linka ka njoj sa sajta, nije u `sitemap.xml` ni u `robots.txt` (koji je javan), a `noindex` meta oznake zabranjuju indeksiranje.
+- Adresu ne objavljujte i ne stavljajte u javne poruke. Pošto je repozitorijum javan, ime fajla se vidi u spisku fajlova na GitHub-u. Prava zaštita je pristupni ključ: bez njega se na stranici ništa ne može promeniti.
+- Nova adresa, ako ova procuri: preimenujte fajl u novo nasumično ime (npr. `urednik-$(openssl rand -hex 6).html`) i pošaljite klijentu novu adresu.
+
+#### Pristupni ključ (za developera)
+Admin stranica čuva izmene direktno u ovaj repozitorijum preko GitHub API-ja. Za to joj treba **fine-grained token**:
+
+1. GitHub → avatar → **Settings** → **Developer settings** → **Personal access tokens** → **Fine-grained tokens** → **Generate new token**.
+2. *Token name*: npr. `ExPoint kursna lista`. *Expiration*: npr. 1 godina (upišite podsetnik u kalendar).
+3. *Repository access*: **Only select repositories** → `dimitrijepejkic/ExPoint`.
+4. *Permissions* → *Repository permissions* → **Contents: Read and write**. Ostalo ostaviti kako jeste.
+5. **Generate token**, kopirajte ga (prikazuje se samo jednom) i pošaljite klijentu privatno, npr. porukom koju posle obriše.
+
+Bezbednost:
+- Token radi samo za ovaj repozitorijum, ali u njemu može da menja bilo koji fajl, dakle ceo sajt. Čuvajte ga kao lozinku.
+- Čuva se samo u pregledaču uređaja na kom je unet. Na deljenom računaru isključite „Zapamti na ovom uređaju" ili kliknite „Odjavi se sa ovog uređaja".
+- **Izgubljen telefon / sumnja na zloupotrebu:** GitHub → Settings → Developer settings → Fine-grained tokens → token → **Revoke**. Odmah prestaje da radi. Zatim napravite novi.
+- Kad token istekne, admin stranica javlja „Pristupni ključ nije ispravan ili je istekao". Napravite novi i klijent ga ponovo unese.
+
+Svako čuvanje je commit „Kursna lista: DD.MM.GGGG. HH:MM" u istoriji repozitorijuma, pa se svaka izmena vidi i može da se vrati (GitHub → `data/kursna-lista.json` → **History**).
+
+#### Ručna izmena (rezervna opcija)
+Kursevi su u fajlu `data/kursna-lista.json` i mogu se menjati i direktno na GitHub-u (olovka → **Commit changes**). Pravila: decimalni brojevi sa **tačkom**, tekst pod navodnicima, zarez posle svakog reda osim poslednjeg. Polje `"azurirano"` je datum koji se prikazuje na sajtu; admin stranica ga upisuje sama.
+
+Ako fajl ima grešku, sajt prikazuje rezervnu tabelu iz `index.html` (sekcija `<!-- KURSNA LISTA -->`). Ta tabela se ne menja automatski, pa je dobro povremeno je uskladiti sa aktuelnim kursom.
 
 Ako se broj valuta promeni, ažurirajte i polje „valuta u ponudi" u sekciji `<!-- O NAMA -->` u `index.html`.
 

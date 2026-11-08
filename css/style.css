@@ -773,6 +773,277 @@ footer {
 }
 
 /* =============================================
+   ADMIN PAGE (kursna lista editor)
+   ============================================= */
+.admin-back {
+    color: rgba(255, 255, 255, 0.92);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.admin-page .nav-wrapper {
+    gap: 12px;
+}
+
+.admin-page .logo {
+    white-space: nowrap;
+}
+
+@media (max-width: 420px) {
+    .admin-page .logo {
+        font-size: 1.1rem;
+    }
+
+    .admin-back {
+        font-size: 0.9rem;
+    }
+}
+
+.admin-back:hover {
+    color: var(--gold);
+}
+
+.admin-main {
+    min-height: calc(100vh - 81px);
+}
+
+.admin-card {
+    max-width: 960px;
+    margin: 0 auto;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: clamp(20px, 4vw, 40px);
+    box-shadow: var(--shadow);
+}
+
+.admin-title {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    margin-bottom: 8px;
+}
+
+.admin-lead {
+    color: var(--muted);
+    margin-bottom: 24px;
+}
+
+.admin-lead strong {
+    color: var(--primary);
+}
+
+.admin-login {
+    max-width: 420px;
+}
+
+.admin-label {
+    font-weight: 700;
+    margin-bottom: -6px;
+}
+
+.admin-check {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.admin-check input {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    accent-color: var(--accent-button);
+}
+
+.admin-head,
+.admin-row {
+    display: grid;
+    grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) 44px;
+    gap: 10px;
+    align-items: center;
+}
+
+.admin-head {
+    padding: 0 2px;
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.admin-rows {
+    display: grid;
+    gap: 10px;
+}
+
+.admin-field {
+    margin: 0;
+}
+
+.admin-field input {
+    padding: 10px 12px;
+    border-radius: 12px;
+}
+
+.admin-field-label {
+    /* labels are announced by screen readers; the column header shows them visually */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+.admin-field input.is-invalid {
+    border-color: #dc2626;
+    background: #fef2f2;
+}
+
+.admin-remove {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--white);
+    color: var(--muted);
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.admin-remove:hover,
+.admin-remove:focus-visible {
+    color: #dc2626;
+    border-color: #fecaca;
+    background: #fef2f2;
+}
+
+.admin-btn-outline {
+    justify-self: start;
+    background: var(--white);
+    color: var(--primary);
+    border: 2px solid var(--border);
+}
+
+.admin-btn-outline:hover {
+    border-color: var(--accent);
+}
+
+.admin-save {
+    justify-self: start;
+    min-width: 260px;
+}
+
+.admin-save:disabled {
+    opacity: 0.7;
+    cursor: wait;
+}
+
+.admin-status {
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 1px solid transparent;
+    font-weight: 600;
+}
+
+.admin-status.is-info {
+    background: #eff6ff;
+    border-color: #bfdbfe;
+    color: #1e3a8a;
+}
+
+.admin-status.is-success {
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+    color: #166534;
+}
+
+.admin-status.is-error {
+    background: #fef2f2;
+    border-color: #fecaca;
+    color: #991b1b;
+}
+
+.admin-status a {
+    text-decoration: underline;
+}
+
+#globalStatus {
+    margin-top: 18px;
+}
+
+.admin-hint {
+    margin: 18px 0 8px;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.admin-logout {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--muted);
+    font-size: 0.9rem;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.admin-logout:hover {
+    color: #dc2626;
+}
+
+/* Phones: one small card per currency, rates side by side */
+@media (max-width: 640px) {
+    .admin-head {
+        display: none;
+    }
+
+    .admin-rows {
+        gap: 16px;
+    }
+
+    .admin-row {
+        position: relative;
+        grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr) minmax(0, 1fr);
+        gap: 10px;
+        padding: 14px;
+        background: var(--light);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+    }
+
+    .admin-field-label {
+        position: static;
+        width: auto;
+        height: auto;
+        overflow: visible;
+        clip: auto;
+        display: block;
+        margin-bottom: 4px;
+        color: var(--muted);
+        font-size: 0.8rem;
+        font-weight: 700;
+    }
+
+    .admin-field--name {
+        grid-column: 1 / -1;
+        padding-right: 44px;
+    }
+
+    .admin-remove {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .admin-save {
+        min-width: 0;
+    }
+}
+
+/* =============================================
    404 PAGE
    ============================================= */
 .error-page {

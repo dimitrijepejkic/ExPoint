@@ -1,4 +1,5 @@
 {
+  "azurirano": "2026-11-08T09:00:00+01:00",
   "kursevi": [
     { "naziv": "Evro",                          "oznaka": "EUR",   "kupovni": 116.5, "prodajni": 118 },
     { "naziv": "Američki dolar",                "oznaka": "USD",   "kupovni": 98,    "prodajni": 103 },

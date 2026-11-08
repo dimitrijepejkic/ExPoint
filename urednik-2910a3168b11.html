@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="sr-Latn">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#0b6efd">
+  <link rel="stylesheet" href="css/vendor/bootstrap.min.css" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="stylesheet" href="css/style.css" />
+  <title>Kursna lista – administracija | ExPoint</title>
+</head>
+
+<body class="admin-page">
+  <header>
+    <div class="container nav-wrapper">
+      <a href="/" class="logo">Ex<span>Point</span> menjačnica</a>
+      <a href="/#kursna-lista" class="admin-back">Nazad na sajt</a>
+    </div>
+  </header>
+
+  <main id="main" class="section admin-main">
+    <div class="container">
+      <div class="admin-card">
+        <h1 class="admin-title">Kursna lista</h1>
+
+        <noscript>
+          <p class="admin-status is-error">Za izmenu kursne liste potrebno je uključiti JavaScript u pregledaču.</p>
+        </noscript>
+
+        <!-- Prijava -->
+        <section id="loginView" hidden>
+          <p class="admin-lead">
+            Unesite pristupni ključ koji ste dobili. Ključ se unosi samo jednom na ovom uređaju.
+          </p>
+          <form id="loginForm" class="admin-login" novalidate>
+            <label for="tokenInput" class="admin-label">Pristupni ključ</label>
+            <input type="password" id="tokenInput" autocomplete="off" autocapitalize="off" spellcheck="false"
+              required />
+            <label class="admin-check">
+              <input type="checkbox" id="rememberInput" checked />
+              <span>Zapamti na ovom uređaju</span>
+            </label>
+            <button type="submit" class="btn btn-primary">Prijavi se</button>
+          </form>
+        </section>
+
+        <!-- Uređivanje -->
+        <section id="editorView" hidden>
+          <p class="admin-lead">
+            Poslednje ažuriranje: <strong id="adminUpdated">—</strong>
+          </p>
+
+          <form id="ratesForm" novalidate>
+            <div class="admin-head" aria-hidden="true">
+              <span>Valuta</span><span>Oznaka</span><span>Kupovni</span><span>Prodajni</span><span></span>
+            </div>
+            <div id="ratesRows" class="admin-rows"></div>
+
+            <button type="button" id="addRow" class="btn admin-btn-outline">+ Dodaj valutu</button>
+
+            <div id="adminStatus" class="admin-status" role="status" aria-live="polite" hidden></div>
+
+            <button type="submit" id="saveBtn" class="btn btn-primary admin-save">Sačuvaj kursnu listu</button>
+          </form>
+
+          <p class="admin-hint">
+            Decimale možete pisati sa zarezom ili tačkom (npr. 116,5). Posle čuvanja, nova kursna lista je na
+            sajtu za oko 1 minut.
+          </p>
+
+          <button type="button" id="logoutBtn" class="admin-logout">Odjavi se sa ovog uređaja</button>
+        </section>
+
+        <!-- Status pre prijave / greška pri učitavanju -->
+        <div id="globalStatus" class="admin-status" role="status" aria-live="polite" hidden></div>
+      </div>
+    </div>
+  </main>
+
+  <template id="rowTemplate">
+    <div class="admin-row">
+      <label class="admin-field admin-field--name">
+        <span class="admin-field-label">Valuta</span>
+        <input type="text" data-field="naziv" autocomplete="off" />
+      </label>
+      <label class="admin-field admin-field--code">
+        <span class="admin-field-label">Oznaka</span>
+        <input type="text" data-field="oznaka" autocomplete="off" autocapitalize="characters" />
+      </label>
+      <label class="admin-field admin-field--rate">
+        <span class="admin-field-label">Kupovni</span>
+        <input type="text" data-field="kupovni" inputmode="decimal" autocomplete="off" />
+      </label>
+      <label class="admin-field admin-field--rate">
+        <span class="admin-field-label">Prodajni</span>
+        <input type="text" data-field="prodajni" inputmode="decimal" autocomplete="off" />
+      </label>
+      <button type="button" class="admin-remove" data-action="remove" aria-label="Ukloni valutu">✕</button>
+    </div>
+  </template>
+
+  <script src="js/editor.js" defer></script>
+</body>
+
+</html>
