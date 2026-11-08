@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+N:;ExPoint menjačnica;;;
+FN:ExPoint menjačnica
+ORG:ExPoint menjačnica
+TEL;TYPE=WORK,VOICE:+381605446081
+EMAIL;TYPE=INTERNET,WORK:expointoffice@gmail.com
+URL:https://expointng.com/
+ADR;TYPE=WORK:;;JNA 9;Negotin;;19300;Srbija
+NOTE:Menjačnica. Pon - Sub 08:00 - 16:00\, nedelja neradni dan.
+END:VCARD

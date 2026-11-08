@@ -13,6 +13,8 @@ Statički sajt menjačnice ExPoint (JNA 9, Negotin), objavljen preko GitHub Page
 | `admin.html`, `js/editor.js` | Admin stranica za izmenu kursne liste (vidi ispod) |
 | `_config.yml` | Isključuje README i izveštaj iz objave na sajtu |
 | `privatnost.html` | Politika privatnosti |
+| `kontakt.html`, `kontakt.vcf` | Stranica koju otvara QR kod (pozovi, Viber, WhatsApp, email, sajt, mapa, sačuvaj kontakt) |
+| `qr/` | QR kod za štampu i digitalno (nije objavljen na sajtu) |
 | `404.html` | Stranica „nije pronađeno" |
 | `images/` | Ikonice sajta, slika za deljenje (`og-image.jpg`), logotipi partnera (`images/partners/`), pozadinska slika (`images/hero/`) |
 | `CNAME` | Domen `expointng.com` za GitHub Pages |
@@ -72,6 +74,17 @@ Radno vreme se nalazi na **tri mesta**. Promenite sva tri:
 Logo stavite u `images/partners/`, pa u sekciji `<!-- PARTNERI -->` promenite `href` (link), `src` (logo) i `alt` (naziv). Odgovarajuću karticu ažurirajte i u sekciji `<!-- USLUGE -->`.
 
 Posle izmene sadržaja promenite datum `<lastmod>` u `sitemap.xml`.
+
+### QR kod
+QR kod vodi na **https://expointng.com/kontakt**, stranicu sa dugmićima: Pozovite, Viber, WhatsApp, Email, Posetite sajt, Lokacija na mapi, Sačuvaj kontakt.
+
+- `qr/expoint-kontakt-qr.svg`: samo QR kod, vektorski (štampa u bilo kojoj veličini).
+- `qr/expoint-kontakt-qr.png`: samo QR kod, 2000×2000 px.
+- `qr/expoint-kontakt-kartica.svg` / `.png`: brendirana kartica 10×14 cm za izlog, pult ili letak.
+
+Saveti za štampu: QR kod ne manji od **2,5 cm**, beli okvir oko koda se ne seče, tamni kod na svetloj podlozi (ne obrnuto). Pre štampe celog tiraža skenirajte probni otisak.
+
+Telefon, email i ostalo menjaju se u `kontakt.html` i `kontakt.vcf`. **QR kod ostaje isti** dok se ne promeni adresa `/kontakt`.
 
 ## Lokalni pregled
 Ako `index.html` otvorite direktno iz foldera, kursna lista se ne čita iz JSON-a (pregledači to ne dozvoljavaju za lokalne fajlove), pa vidite rezervnu tabelu. Za tačan prikaz pokrenite lokalni server iz foldera projekta:
