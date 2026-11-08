@@ -649,6 +649,15 @@ footer {
     margin: 0;
 }
 
+/* Company registration details: own full-width row under the footer line */
+.footer-content .footer-legal {
+    flex-basis: 100%;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.85rem;
+}
+
 /* =============================================
    MODAL
    ============================================= */
