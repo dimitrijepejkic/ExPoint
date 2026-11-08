@@ -24,15 +24,66 @@
         });
     }
 
+    /* ---------- Exchange rates (data/kursna-lista.json) ---------- */
+    const RATES_URL = "data/kursna-lista.json";
+    const ratesTable = document.querySelector(".rates-table");
+    const ratesBody = ratesTable && ratesTable.querySelector("tbody");
+
+    const isValidRate = r =>
+        r && typeof r.naziv === "string" && typeof r.oznaka === "string" &&
+        Number.isFinite(r.kupovni) && Number.isFinite(r.prodajni);
+
+    // Keep "(8. serija)"-style notes on one line.
+    const keepParensTogether = text =>
+        text.replace(/\(([^)]*)\)/g, m => m.replace(/ /g, " "));
+
+    function renderRates(rates) {
+        const columns = [
+            ["Valuta", r => keepParensTogether(r.naziv)],
+            ["Oznaka", r => r.oznaka],
+            ["Kupovni kurs", r => String(r.kupovni)],
+            ["Prodajni kurs", r => String(r.prodajni)]
+        ];
+        const rows = rates.map(rate => {
+            const tr = document.createElement("tr");
+            columns.forEach(([label, value]) => {
+                const td = document.createElement("td");
+                td.dataset.label = label;
+                td.textContent = value(rate);
+                tr.appendChild(td);
+            });
+            return tr;
+        });
+        ratesBody.replaceChildren(...rows);
+    }
+
+    // Loads the JSON and replaces the table rows. On any problem (offline,
+    // file:// preview, typo in the JSON) the rows already on the page stay.
+    async function loadRates() {
+        if (!ratesBody) return;
+        try {
+            const res = await fetch(RATES_URL, { cache: "no-cache" });
+            if (!res.ok) throw new Error("HTTP " + res.status);
+            const data = await res.json();
+            const rates = data && data.kursevi;
+            if (!Array.isArray(rates) || rates.length === 0 || !rates.every(isValidRate)) {
+                throw new Error("neispravan format kursne liste");
+            }
+            renderRates(rates);
+        } catch (err) {
+            console.warn("Kursna lista nije učitana iz " + RATES_URL + ":", err.message);
+        }
+    }
+
     /* ---------- Rates refresh indicator ---------- */
     const countdown = document.getElementById("countdown");
     const lastRefresh = document.getElementById("lastRefresh");
-    const ratesTable = document.querySelector(".rates-table");
 
     if (countdown && lastRefresh && ratesTable) {
         let seconds = 60;
 
         const updateRefreshTime = () => {
+            loadRates();
             lastRefresh.textContent = new Date().toLocaleTimeString("sr-RS");
             ratesTable.classList.add("refreshing");
             setTimeout(() => ratesTable.classList.remove("refreshing"), 1000);
@@ -97,6 +148,24 @@
                 e.preventDefault();
                 closeModal.focus();
             }
+        });
+    }
+
+    /* ---------- Click-to-load Google map ---------- */
+    const mapConsent = document.getElementById("mapConsent");
+    const mapLoad = document.getElementById("mapLoad");
+
+    if (mapConsent && mapLoad) {
+        mapLoad.addEventListener("click", () => {
+            const iframe = document.createElement("iframe");
+            iframe.title = mapConsent.dataset.mapTitle;
+            iframe.src = mapConsent.dataset.mapSrc;
+            iframe.width = "100%";
+            iframe.height = "450";
+            iframe.allowFullscreen = true;
+            iframe.referrerPolicy = "no-referrer-when-downgrade";
+            mapConsent.replaceWith(iframe);
+            iframe.focus();
         });
     }
 

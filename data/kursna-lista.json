@@ -1,0 +1,15 @@
+{
+  "kursevi": [
+    { "naziv": "Evro",                          "oznaka": "EUR",   "kupovni": 116.5, "prodajni": 118 },
+    { "naziv": "Američki dolar",                "oznaka": "USD",   "kupovni": 98,    "prodajni": 103 },
+    { "naziv": "Švajcarski franak",             "oznaka": "CHF",   "kupovni": 126,   "prodajni": 130 },
+    { "naziv": "Švajcarski franak (8. serija)", "oznaka": "CHF-8", "kupovni": 123.5, "prodajni": 128 },
+    { "naziv": "Britanska funta",               "oznaka": "GBP",   "kupovni": 132,   "prodajni": 136 },
+    { "naziv": "Australijski dolar",            "oznaka": "AUD",   "kupovni": 69,    "prodajni": 73 },
+    { "naziv": "Kanadski dolar",                "oznaka": "CAD",   "kupovni": 70,    "prodajni": 74 },
+    { "naziv": "Konvertibilna marka",           "oznaka": "BAM",   "kupovni": 55,    "prodajni": 60 },
+    { "naziv": "Rumunski lej",                  "oznaka": "RON",   "kupovni": 21,    "prodajni": 23 },
+    { "naziv": "Turska lira",                   "oznaka": "TRY",   "kupovni": 1.2,   "prodajni": 2.4 },
+    { "naziv": "Makedonski denar",              "oznaka": "MKD",   "kupovni": 1.3,   "prodajni": 1.9 }
+  ]
+}

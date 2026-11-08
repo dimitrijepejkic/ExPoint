@@ -8,29 +8,36 @@ Statički sajt menjačnice ExPoint (JNA 9, Negotin), objavljen preko GitHub Page
 |---|---|
 | `index.html` | Cela stranica: meni, kursna lista, o nama, partneri, usluge, lokacija, kontakt forma |
 | `css/style.css` | Svi stilovi (boje i zaobljenja su na vrhu fajla, u `:root`) |
-| `js/main.js` | Mobilni meni, prozor za usluge, odbrojavanje iznad kursne liste, godina u futeru |
+| `js/main.js` | Učitavanje kursne liste, mobilni meni, prozor za usluge, odbrojavanje, godina u futeru |
+| `data/kursna-lista.json` | **Kursevi**: ovde se menjaju |
+| `privatnost.html` | Politika privatnosti |
 | `404.html` | Stranica „nije pronađeno" |
-| `images/` | Ikonice sajta, slika za deljenje (`og-image.jpg`), logotipi partnera (`images/partners/`) |
+| `images/` | Ikonice sajta, slika za deljenje (`og-image.jpg`), logotipi partnera (`images/partners/`), pozadinska slika (`images/hero/`) |
 | `CNAME` | Domen `expointng.com` za GitHub Pages |
 | `sitemap.xml`, `robots.txt` | Za pretraživače |
 
-Bootstrap 5.3.3 CSS se učitava sa CDN-a (samo za raspored kolona). Nema build koraka ni npm-a.
+Bootstrap 5.3.3 CSS je lokalno u `css/vendor/bootstrap.min.css` (koristi se samo za raspored kolona). Sajt ne učitava ništa sa spoljnih servera osim Google mape i kontakt forme (Formspree). Nema build koraka ni npm-a.
 
 ## Česte izmene
 
 ### Promena kursne liste
-U `index.html` pronađite sekciju `<!-- KURSNA LISTA -->`. Svaki red tabele izgleda ovako:
+Kursevi su u fajlu **`data/kursna-lista.json`**. HTML ne treba dirati. Svaki red izgleda ovako:
 
-```html
-<tr>
-  <td data-label="Valuta">Evro</td>
-  <td data-label="Oznaka">EUR</td>
-  <td data-label="Kupovni kurs">116.5</td>
-  <td data-label="Prodajni kurs">118</td>
-</tr>
+```json
+{ "naziv": "Evro", "oznaka": "EUR", "kupovni": 116.5, "prodajni": 118 },
 ```
 
-Promenite samo brojeve. Kod nove valute kopirajte ceo `<tr>…</tr>` red. Ako se broj valuta promeni, ažurirajte i polje „valuta u ponudi" u sekciji `<!-- O NAMA -->`.
+**Najlakše preko GitHub-a, i sa telefona:** otvorite repozitorijum → `data` → `kursna-lista.json` → ikonica olovke → promenite brojeve → **Commit changes**. Sajt se osveži za par minuta. Posetioci koji su već na stranici vide novi kurs pri sledećem osvežavanju (svakih 60 s).
+
+Pravila, da fajl ostane ispravan:
+- Decimalni brojevi pišu se sa **tačkom**: `116.5`, a ne `116,5`. Brojevi idu bez navodnika.
+- Tekst (`naziv`, `oznaka`) ide **pod navodnicima**.
+- Svaki red osim poslednjeg završava se **zarezom**.
+- Za novu valutu kopirajte ceo red `{ ... },`. Redosled u fajlu je redosled u tabeli.
+
+Ako fajl ima grešku, sajt prikazuje rezervnu tabelu iz `index.html` (sekcija `<!-- KURSNA LISTA -->`), a ne praznu listu. Zato je dobro da se i ta rezervna tabela s vremena na vreme uskladi sa JSON-om. Ispravnost fajla možete proveriti na https://jsonlint.com.
+
+Ako se broj valuta promeni, ažurirajte i polje „valuta u ponudi" u sekciji `<!-- O NAMA -->` u `index.html`.
 
 ### Promena radnog vremena
 Radno vreme se nalazi na **tri mesta**. Promenite sva tri:
@@ -44,7 +51,7 @@ Logo stavite u `images/partners/`, pa u sekciji `<!-- PARTNERI -->` promenite `h
 Posle izmene sadržaja promenite datum `<lastmod>` u `sitemap.xml`.
 
 ## Lokalni pregled
-Dovoljno je otvoriti `index.html` u pregledaču. Za tačan prikaz (manifest, 404 stranica) pokrenite lokalni server iz foldera projekta:
+Ako `index.html` otvorite direktno iz foldera, kursna lista se ne čita iz JSON-a (pregledači to ne dozvoljavaju za lokalne fajlove), pa vidite rezervnu tabelu. Za tačan prikaz pokrenite lokalni server iz foldera projekta:
 
 ```
 python -m http.server 8000

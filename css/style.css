@@ -231,12 +231,28 @@ header {
 /* =============================================
    HERO
    ============================================= */
+/* Hero photo (Unsplash, self-hosted in images/hero/): 800px for phones,
+   1600px from 769px up. AVIF where supported, WebP otherwise.
+   The gradient is repeated literally (no var()) so browsers without
+   image-set() keep the plain WebP declaration as a fallback. */
 .hero {
-    background:
-        linear-gradient(rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.9)),
-        url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    background-color: var(--primary);
+    background-image: linear-gradient(rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.9)), url('../images/hero/hero-800.webp');
+    background-image: linear-gradient(rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.9)), image-set(url('../images/hero/hero-800.avif') type('image/avif'),
+            url('../images/hero/hero-800.webp') type('image/webp'));
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     color: var(--white);
     padding: 110px 0 90px;
+}
+
+@media (min-width: 769px) {
+    .hero {
+        background-image: linear-gradient(rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.9)), url('../images/hero/hero-1600.webp');
+        background-image: linear-gradient(rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.9)), image-set(url('../images/hero/hero-1600.avif') type('image/avif'),
+                url('../images/hero/hero-1600.webp') type('image/webp'));
+    }
 }
 
 .hero-badge {
@@ -511,6 +527,72 @@ header {
     border: 0;
 }
 
+/* Click-to-load map: same 450px box the iframe uses */
+.map-consent {
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    text-align: center;
+    background-color: #eef2f7;
+    /* faint street-grid pattern */
+    background-image:
+        linear-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+        linear-gradient(35deg, transparent 47%, rgba(255, 255, 255, 0.9) 47%, rgba(255, 255, 255, 0.9) 53%, transparent 53%),
+        linear-gradient(-55deg, transparent 48%, rgba(255, 255, 255, 0.9) 48%, rgba(255, 255, 255, 0.9) 52%, transparent 52%);
+    background-size: 32px 32px, 32px 32px, 100% 100%, 100% 100%;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.map-consent-inner {
+    max-width: 360px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.map-consent-pin {
+    font-size: 2rem;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.map-consent-address {
+    margin-bottom: 16px;
+}
+
+.map-consent-btn {
+    width: 100%;
+}
+
+.map-consent-note {
+    margin: 14px 0 8px;
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+.map-consent-note a,
+.map-consent-link {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.map-consent-link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent-button);
+}
+
+.map-consent-note a:hover,
+.map-consent-link:hover {
+    color: var(--accent-button-hover);
+}
+
 /* =============================================
    FORM
    ============================================= */
@@ -624,6 +706,70 @@ footer {
     0%   { opacity: 1; }
     50%  { opacity: 0.3; }
     100% { opacity: 1; }
+}
+
+/* =============================================
+   PRIVACY PAGE & PRIVACY LINKS
+   ============================================= */
+.privacy-content {
+    max-width: 820px;
+    margin: 0 auto;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: clamp(24px, 5vw, 48px);
+    box-shadow: var(--shadow);
+}
+
+.privacy-content .section-title,
+.privacy-content .section-title--left {
+    margin-bottom: 6px;
+    text-align: left;
+}
+
+.privacy-updated {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+}
+
+.privacy-content h2 {
+    font-size: 1.35rem;
+    margin: 32px 0 12px;
+}
+
+.privacy-content p {
+    color: #334155;
+}
+
+.privacy-content .location-list {
+    margin: 0 0 16px;
+}
+
+.privacy-content a:not(.btn),
+.form-note a,
+.footer-content a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.privacy-content a:not(.btn):hover,
+.form-note a:hover {
+    color: var(--accent-button);
+}
+
+.footer-content a:hover {
+    color: var(--gold);
+}
+
+.privacy-back {
+    margin: 32px 0 0;
+}
+
+.form-note {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.9rem;
 }
 
 /* =============================================
