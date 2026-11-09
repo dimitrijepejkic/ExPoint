@@ -1,7 +1,7 @@
 {
-  "azurirano": "2026-11-09T17:58:10.273Z",
+  "azurirano": "2026-11-09T17:59:44.245Z",
   "kursevi": [
-    { "naziv": "Evro", "oznaka": "EUR", "kupovni": 116.6, "prodajni": 118 },
+    { "naziv": "Evro", "oznaka": "EUR", "kupovni": 116.5, "prodajni": 118 },
     { "naziv": "Američki dolar", "oznaka": "USD", "kupovni": 98, "prodajni": 103 },
     { "naziv": "Švajcarski franak", "oznaka": "CHF", "kupovni": 126, "prodajni": 130 },
     { "naziv": "Švajcarski franak (8. serija)", "oznaka": "CHF-8", "kupovni": 123.5, "prodajni": 128 },
